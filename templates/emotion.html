@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2 style="color: #d9a7ff;">Emotional Bot</h2>
+    <form method="post">
+        <textarea name="text" rows="4" cols="50" placeholder="How are you feeling today?" required></textarea>
+        <br><br>
+        <button type="submit" style="background-color: #a64bf4; color: white; padding: 10px 20px; border: none; border-radius: 8px;">Analyze</button>
+    </form>
+
+    {% if result %}
+        <h3 style="color: #ffffff;">Result:</h3>
+        <div style="color: #ffffff; background-color: #1e1e1e; padding: 15px; border-radius: 10px; white-space: pre-wrap;">
+            {{ result | safe }}
+        </div>
+    {% endif %}
+{% endblock %}

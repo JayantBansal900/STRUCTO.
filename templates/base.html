@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Structo Agent System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Structo.</h1>
+    <nav>
+        <a href="/knowledge">Knowledge Agent</a>
+        <a href="/emotion">Emotional Agent</a>
+        <a href="/data">Data Agent</a>
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+    
+</body>
+</html>

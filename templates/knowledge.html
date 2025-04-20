@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Knowledge Bot</h2>
+
+<form method="post" id="queryForm">
+    <div class="input-container">
+        <input type="text" name="query" id="queryInput" placeholder="Ask me anything" required />
+
+        <!-- All icons inside input -->
+        <div class="input-buttons">
+            <button type="button" id="micButton" onclick="startListening()">🎤</button>
+            <button type="button" id="speakerButton" onclick="speakAnswer()">🔊</button>
+            <button type="submit" id="askButton">Ask</button>
+        </div>
+    </div>
+</form>
+
+{% if answer %}
+<p><strong>Answer:</strong> <span id="botAnswer">{{ answer }}</span></p>
+{% endif %}
+
+<script>
+    // 🎤 Voice Recognition (Speech-to-Text)
+    function startListening() {
+        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        recognition.lang = 'en-US';
+        recognition.interimResults = false;
+
+        recognition.onresult = function(event) {
+            const transcript = event.results[0][0].transcript;
+            document.getElementById('queryInput').value = transcript;
+        };
+
+        recognition.onerror = function(event) {
+            alert("Voice recognition error: " + event.error);
+        };
+
+        recognition.start();
+    }
+
+    // 🔊 Text-to-Speech
+    function speakAnswer() {
+        const answerText = document.getElementById('botAnswer');
+        if (answerText) {
+            const utterance = new SpeechSynthesisUtterance(answerText.textContent);
+            utterance.lang = 'en-US';
+            window.speechSynthesis.speak(utterance);
+        }
+    }
+</script>
+{% endblock %}

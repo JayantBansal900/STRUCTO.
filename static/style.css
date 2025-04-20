@@ -1,0 +1,278 @@
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #1f1f1f, #2e2e2e);
+    color: #ffffff;
+    padding: 40px;
+    min-height: 100vh;
+}
+
+/* Heading Style */
+h1 {
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 30px;
+    background: linear-gradient(to right, #a94eff, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeIn 2s ease-in-out;
+}
+
+h2 {
+    color: #d9b8ff;
+    margin-bottom: 20px;
+    font-size: 32px;
+    border-left: 6px solid #a94eff;
+    padding-left: 12px;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    background-color: #1a1a1a;
+    padding: 15px 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    margin-bottom: 30px;
+    animation: slideDown 1s ease-in-out;
+}
+
+nav a {
+    color: #d9b8ff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #a94eff;
+    transition: width 0.4s ease;
+}
+
+nav a:hover {
+    color: #ffffff;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* HR line */
+hr {
+    border: none;
+    height: 2px;
+    background-color: #a94eff;
+    margin: 30px auto;
+    width: 60%;
+}
+
+/* Form Styling */
+form {
+    background-color: #2c2c2c;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(169, 78, 255, 0.3);
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+input[type="text"],
+input[type="file"],
+textarea {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: #444;
+    color: white;
+    min-width: 200px;
+}
+
+textarea::placeholder,
+input::placeholder {
+    color: #bbb;
+}
+
+/* Ask Button - Left Side */
+#askButton {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #a94eff, #6e00a2);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(169, 78, 255, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Mic and Speaker Buttons */
+#micButton,
+#speakerButton {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #444;
+    color: black;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+#micButton:hover,
+#speakerButton:hover {
+    background: #444;
+    color: black;
+}
+
+#askButton:hover {
+    background: linear-gradient(to right, #ffffff, #a94eff);
+    color: #1a1a1a;
+}
+
+/* Pre (for summary output) */
+pre {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 12px;
+    color: #d9b8ff;
+    margin-top: 20px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+/* Conditional Output Paragraphs */
+p strong {
+    color: #e24fef;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Input and Icon Alignment Container */
+.input-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#queryInput {
+    width: 100%;
+    padding: 15px 120px 15px 15px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    background-color: #444;
+    color: white;
+}
+
+.input-buttons {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 6px;
+}
+
+.input-buttons button {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: white;
+    color: black;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+/* 🎯 New: Styled File Upload Section */
+.file-upload-form {
+    background-color: #2c2c2c;
+    padding: 20px 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(169, 78, 255, 0.3);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.file-upload-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #444;
+    padding: 12px 50px;
+    border-radius: 12px;
+    gap: 15px;
+}
+
+.file-upload-container input[type="file"] {
+    color: #fff;
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    flex: 1;
+    cursor: pointer;
+}
+
+.upload-btn {
+    background: linear-gradient(145deg, #a94eff, #6e00a2);
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.upload-btn:hover {
+    background: linear-gradient(to right, #ffffff, #a94eff);
+    color: #1a1a1a;
+}

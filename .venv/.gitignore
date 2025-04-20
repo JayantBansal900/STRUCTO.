@@ -1,0 +1,16 @@
+# Ignore Python environment
+botenv/
+venv/
+env/
+
+# Ignore pycache files
+__pycache__/
+*.pyc
+
+# Ignore large libraries or other unnecessary files
+Lib/
+Scripts/
+*.dll
+*.lib
+*.exe
+*.pyd
