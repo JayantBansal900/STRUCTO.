@@ -1,0 +1,11 @@
+botenv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.dll
+*.lib
+*.exe
+Lib/
+Scripts/
+pyvenv.cfg

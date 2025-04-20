@@ -1,0 +1,8 @@
+# Project exclude paths
+.env
+.venv
+.vscode
+demploys/
+/src/Config.conf
+/src/__pycache__
+/src/adapter/
